@@ -8,7 +8,7 @@ tags:
 综合表现比 uiuxpromax 那些热门设计 skill 实用得多
 https://impeccable.style
 
-![](assets/Codex%20具备设计师级别的审美/file-20260604015234810.png)
+
 
 2、taste skill
 仓库里有很多skill，但核心用法下载两个就足够:
