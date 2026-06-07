@@ -109,18 +109,21 @@ Codex 新版强制要求使用 **Responses API** 格式（`/v1/responses` 端点
 | **Base URL** | API 地址 | 见下方各服务商示例 |
 | **Key** | API 密钥 | 从服务商获取 |
 | **上游协议** | 选择 `Chat Completions` | 必须选这个 |
-![](assets/Codex++使用/file-20260603191344940.png)
+
+> 配置界面截图已省略
 ### 第四步：保存并测试
 
 1. 点击「保存」
 2. 点击「测试」验证配置
 3. 看到 HTTP 200 表示配置成功
-![](assets/Codex++使用/file-20260603191605148.png)
+
+> 测试结果截图已省略
 ### 第五步：重启 Codex++
 
 1. 点击「重启 Codex++」
 2. 或从 Codex++ 入口启动 Codex（不要直接点原版 Codex）
-![](assets/Codex++使用/file-20260603191636813.png)
+
+> 重启方式截图已省略
 ---
 
 ## 五、实战案例
@@ -180,7 +183,8 @@ Codex 新版强制要求使用 **Responses API** 格式（`/v1/responses` 端点
 | Base URL | `https://api.deepseek.com` |
 | Key | 你的 DeepSeek API Key（`sk-` 开头） |
 | 上游协议 | `Chat Completions` |
-![](assets/Codex++使用/file-20260603191813669.png)
+
+> 配置示例截图已省略
 #### 3. 验证
 
 点击「测试」，看到类似以下响应表示成功：
