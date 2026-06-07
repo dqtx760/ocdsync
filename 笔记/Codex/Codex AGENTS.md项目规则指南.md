@@ -1,4 +1,4 @@
-﻿---
+---
 title: Codex AGENTS.md项目规则指南
 time: 2026-06-07
 tags:
