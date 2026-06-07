@@ -1,5 +1,5 @@
-﻿---
-title: Obsidian 涓娇鐢?Claude
+---
+title: Obsidian 中使用 Claude
 time: 2026-06-07
 tags:
   - obsidian
@@ -7,81 +7,86 @@ tags:
   - troubleshooting
 ---
 
-## 浣跨敤鏂规硶
+## 使用方法
 
-1. 璁╁鎴锋埅鍥惧彂鏉ユ姤閿欎俊鎭?2. 鏍规嵁鎶ラ敊绫诲瀷閫夋嫨瀵瑰簲鐨勮瘽鏈ā鏉?3. 璁╁鎴峰湪缁堢鍚姩 Claude Code锛岀矘璐磋瘽鏈彂閫佸嵆鍙?
+1. 让客户截图发来报错信息
+2. 根据报错类型选择对应的话术模板
+3. 让客户在终端启动 Claude Code，粘贴话术发送即可
+
 ---
 
-## 涓€銆佸惎鍔?Claude Code
+## 一、启动 Claude Code
 
-win+R 杈撳叆 cmd
+win+R 输入 cmd
 
-绮樿创涓嬮潰鍛戒护鍚姩 Claude Code
+粘贴下面命令启动 Claude Code
 
 ```
 claude --dangerously-skip-permissions
 ```
 
-> 娉ㄦ剰锛氬鎴锋槸 npm 瀹夎鐨?Claude Code锛岀敤 clijs 璺緞锛堜笉鏄?claude.cmd锛?
+> 注意：客户是 npm 安装的 Claude Code，用 cli.js 路径（不是 claude.cmd）
 ---
 
-## 浜屻€丆laude Provider 閰嶇疆
+## 二、Claude Provider 配置
 
-Claudian 璁剧疆 鈫?**Claude** 鏍囩椤?鈫?**Claude CLI path** 鈫?濉叆 claude.exe 瀹屾暣璺緞
+Claudian 设置 → **Claude** 标签页 → **Claude CLI path** → 填入 claude.exe 完整路径
 
-**鏌ユ壘璺緞鐨勬柟娉?*锛堣瀹㈡埛鍦ㄧ粓绔墽琛岋級锛?
+**查找路径的方法**（让客户在终端执行）：
 ```bash
 for %I in ("%APPDATA%\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe") do @echo %~fI
 ```
 
-浼氳緭鍑哄畬鏁磋矾寰勶紝鐩存帴澶嶅埗绮樿创鍒?Claudian 璁剧疆涓嵆鍙€?
-甯歌璺緞锛?- npm 鍏ㄥ眬瀹夎锛堟渶甯歌锛夛細`C:\Users\<鐢ㄦ埛鍚?\AppData\Roaming\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe`
+会输出完整路径，直接复制粘贴到 Claudian 设置中即可。
+常见路径：
+- npm 全局安装（最常见）：`C:\Users\<用户名>\AppData\Roaming\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe`
 
-> 鈿狅笍 `where claude` 鏌ュ埌鐨勬槸鍚姩鑴氭湰锛?cmd锛夛紝涓嶆槸瀹為檯鐨?exe銆傞厤缃枃浠堕渶瑕佸～ exe 鐨勫畬鏁磋矾寰勩€?
+> ⚠️ `where claude` 查到的是启动脚本（.cmd），不是实际的 exe。配置文件需要填 exe 的完整路径。
 ---
 
-## 涓夈€丆laude Provider 鎶ラ敊璇濇湳
+## 三、Claude Provider 报错话术
 
-閫傜敤浜庯細妯″瀷閫夋嫨鍣ㄥ彧鏈?Claude 閫夐」锛屽璇濇椂鎶ラ敊銆?
+适用于：模型选择器只有 Claude 选项，对话时报错。
 ```
-Claude Code 缁堢浣跨敤姝ｅ父锛屼絾鍦?Obsidian 鐨?Claudian 鎻掍欢涓璇濇姤閿欙紝甯垜妫€鏌ュ苟淇 claudian-settings.json 閰嶇疆鏂囦欢銆?
-鎴戞槸 npm 瀹夎鐨?Claude Code锛宑li 璺緞鏄細C:\Users\<鐢ㄦ埛鍚?\AppData\Roaming\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe
+Claude Code 终端使用正常，但在 Obsidian 的 Claudian 插件中对话报错，帮我检查并修复 claudian-settings.json 配置文件。
+我是 npm 安装的 Claude Code，cli 路径是：C:\Users\<用户名>\AppData\Roaming\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe
 
-鎶ラ敊淇℃伅濡備笅锛?```
+报错信息如下：```
 
-锛堣瀹㈡埛绮樿创瀹為檯鎶ラ敊鎴浘鎴栨枃瀛楋紝骞舵浛鎹㈣矾寰勪负鑷繁鐨勫疄闄呰矾寰勶級
+（让客户粘贴实际报错截图或文字，并替换路径为自己的实际路径）
 
 ---
 
-## 鍥涖€丆odex Provider 鎶ラ敊璇濇湳
+## 四、Codex Provider 报错话术
 
-閫傜敤浜庯細浣跨敤 Codex 妯″瀷锛堝灏忕背 MiMo锛夋椂鎶ラ敊銆?
+适用于：使用 Codex 模型（如小米 MiMo）时报错。
 ```
-Codex 妗岄潰绔娇鐢ㄦ甯革紝浣嗗湪 Obsidian 鐨?Claudian 鎻掍欢涓璇濇姤閿欙紝甯垜妫€鏌ュ苟淇 claudian-settings.json 閰嶇疆鏂囦欢銆?
-鎴戠殑 Codex CLI 璺緞鏄細C:\Users\<鐢ㄦ埛鍚?\AppData\Local\UniGetUI\Chocolatey\bin\codex.exe
-鎴戜娇鐢ㄧ殑妯″瀷鏄細mimo-v2.5
+Codex 桌面端使用正常，但在 Obsidian 的 Claudian 插件中对话报错，帮我检查并修复 claudian-settings.json 配置文件。
+我的 Codex CLI 路径是：C:\Users\<用户名>\AppData\Local\UniGetUI\Chocolatey\bin\codex.exe
+我使用的模型是：mimo-v2.5
 
-鎶ラ敊淇℃伅濡備笅锛?```
+报错信息如下：```
 
-锛堣瀹㈡埛绮樿创瀹為檯鎶ラ敊鎴浘鎴栨枃瀛楋紝骞舵浛鎹㈣矾寰勫拰妯″瀷鍚嶄负鑷繁鐨勫疄闄呭€硷級
+（让客户粘贴实际报错截图或文字，并替换路径和模型名为自己的实际值）
 
-### 甯歌 Codex 鎶ラ敊
+### 常见 Codex 报错
 
-**妯″瀷涓嶆敮鎸?*锛?```
-鉂?Error: {"error":{"message":"Param Incorrect","type":"upstream_error","code":"400","param":"Not supported model gpt-5.5"}}
+**模型不支持**：
+```
+✖ Error: {"error":{"message":"Param Incorrect","type":"upstream_error","code":"400","param":"Not supported model gpt-5.5"}}
 ```
 
-鍘熷洜锛歚savedProviderModel.codex` 琚鎴愪簡涓嶆敮鎸佺殑妯″瀷鍚嶃€備慨澶嶏細鏀逛负 API 瀹為檯鏀寔鐨勬ā鍨嬪悕锛堝 `mimo-v2.5`锛夈€?
-**Codex 寮€鍏虫湭寮€鍚?*锛?妯″瀷閫夋嫨鍣ㄤ腑鐪嬩笉鍒?Codex 鍒嗙粍銆?
-鍘熷洜锛歚providerConfigs.codex.enabled` 涓?`false`銆備慨澶嶏細鍦?Claudian 璁剧疆 鈫?Codex 鏍囩椤垫墦寮€寮€鍏炽€?
+原因：`savedProviderModel.codex` 被设成了不支持的模型名。修复：改为 API 实际支持的模型名（如 `mimo-v2.5`）。
+**Codex 开关未开启**：模型选择器中看不到 Codex 分组。
+原因：`providerConfigs.codex.enabled` 为 `false`。修复：在 Claudian 设置 → Codex 标签页打开开关。
 ---
 
-## 浜斻€佽烦杩囩粓绔俊浠绘彁绀?
-瀹㈡埛姣忔鍚姩 Claude Code 閮戒細鐪嬪埌瀹夊叏纭鎻愮ず锛屽府蹇欓厤缃烦杩囷細
+## 五、跳过终端信任提示
+客户每次启动 Claude Code 都会看到安全确认提示，帮忙配置跳过：
 
 ```
-姣忔鍚姩 Claude Code 閮借鎵嬪姩纭淇′换鏂囦欢澶癸紝寰堥夯鐑︼紝甯垜閰嶇疆璺宠繃杩欎釜鎻愮ず銆?
-缁堢鏄剧ず鐨勫唴瀹规槸锛?
+每次启动 Claude Code 都要手动确认信任文件夹，很麻烦，帮我配置跳过这个提示。
+终端显示的内容是：
 Accessing workspace:
 C:\Users\Running\Desktop
 
@@ -90,20 +95,19 @@ Quick safety check: Is this a project you created or one you trust?
 
 ---
 
-## 鍏€侀厤缃枃浠跺叧閿瓧娈甸€熸煡
+## 六、配置文件关键字段速查
 
-缁?Claude Code 鍙傝€冿紝蹇€熷畾浣嶉棶棰樺瓧娈碉細
+给 Claude Code 参考，快速定位问题字段：
 
-| 瀛楁 | 浣滅敤 | 甯歌闂 |
+| 字段 | 作用 | 常见问题 |
 |------|------|---------|
-| `providerConfigs.claude.cliPath` | Claude CLI 璺緞 | npm 瀹夎娉ㄦ剰鐢?clijs 璺緞锛屼笉鏄?claude.cmd |
-| `providerConfigs.claude.customModels` | Claude 鑷畾涔夋ā鍨?| 涓€鑸笉闇€瑕佹敼 |
-| `providerConfigs.codex.enabled` | Codex 寮€鍏?| 涓?`false` 鏃剁湅涓嶅埌 Codex 妯″瀷 |
-| `providerConfigs.codex.customModels` | Codex 鑷畾涔夋ā鍨嬪垪琛?| 杩藉姞鑰岄潪鏇挎崲锛屽唴缃?GPT 妯″瀷鍒犱笉鎺?|
-| `providerConfigs.codex.cliPathsByHost` | Codex CLI 璺緞 | 璺緞閿欒浼氬鑷存棤娉曞惎鍔?|
-| `savedProviderModel` | 鍚?provider 榛樿妯″瀷 | 濉簡涓嶆敮鎸佺殑妯″瀷鍚嶄細鎶?400 |
-| `settingsProvider` | 鏂板璇濋粯璁?provider | `"claude"` 鎴?`"codex"` |
+| `providerConfigs.claude.cliPath` | Claude CLI 路径 | npm 安装注意用 cli.js 路径，不是 claude.cmd |
+| `providerConfigs.claude.customModels` | Claude 自定义模型 | 一般不需要改 |
+| `providerConfigs.codex.enabled` | Codex 开关 | 为 `false` 时看不到 Codex 模型 |
+| `providerConfigs.codex.customModels` | Codex 自定义模型列表 | 追加而非替换，内置 GPT 模型删不掉 |
+| `providerConfigs.codex.cliPathsByHost` | Codex CLI 路径 | 路径错误会导致无法启动 |
+| `savedProviderModel` | 各 provider 默认模型 | 填了不支持的模型名会报 400 |
+| `settingsProvider` | 新对话默认 provider | `"claude"` 或 `"codex"` |
 ---
 
 > 📎 [[笔记/index|📒 返回笔记索引]]
-

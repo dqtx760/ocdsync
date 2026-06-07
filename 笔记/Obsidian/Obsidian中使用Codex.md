@@ -1,5 +1,5 @@
-﻿---
-title: Obsidian 涓娇鐢?Codex
+---
+title: Obsidian 中使用 Codex
 time: 2026-06-07
 tags:
   - obsidian
@@ -7,27 +7,27 @@ tags:
   - claudian
 ---
 
-## 姒傝堪
+## 概述
 
-Claudian 鎻掍欢鏀寔涓や釜 provider锛?
-| Provider | 璇存槑 | 妯″瀷绀轰緥 |
+Claudian 插件支持两个 provider：
+| Provider | 说明 | 模型示例 |
 |----------|------|---------|
-| Claude | 璋冪敤鏈湴 Claude Code CLI | Opus銆丼onnet銆丠aiku |
-| Codex | 璋冪敤鏈湴 Codex CLI锛屾敮鎸?OpenAI 鍏煎 API | mimo-v2.5銆乷4-mini 绛?|
+| Claude | 调用本地 Claude Code CLI | Opus、Sonnet、Haiku |
+| Codex | 调用本地 Codex CLI，兼容 OpenAI 兼容 API | mimo-v2.5、o4-mini 等 |
 
-閰嶇疆鏂囦欢璺緞锛歚<vault>/.claudian/claudian-settings.json`
+配置文件路径：`<vault>/.claudian/claudian-settings.json`
 
-## 閰嶇疆姝ラ
+## 配置步骤
 
-### 绗竴姝ワ細寮€鍚?Codex 寮€鍏?
-Claudian 璁剧疆 鈫?**Codex** 鏍囩椤?鈫?**Enable Codex provider** 鈫?鎵撳紑
+### 第一步：开启 Codex 开关
+Claudian 设置 → **Codex** 标签页 → **Enable Codex provider** → 打开
 
-涓嶅紑杩欎釜寮€鍏筹紝妯″瀷閫夋嫨鍣ㄩ噷涓嶄細鍑虹幇 Codex 妯″瀷銆?
-### 绗簩姝ワ細濉啓 Codex CLI 璺緞
+不开这个开关，模型选择器里不会出现 Codex 模型。
+### 第二步：填写 Codex CLI 路径
 
-Claudian 璁剧疆 鈫?**Codex** 鏍囩椤?鈫?**Codex CLI path** 鈫?濉叆 codex.exe 瀹屾暣璺緞
+Claudian 设置 → **Codex** 标签页 → **Codex CLI path** → 填入 codex.exe 完整路径
 
-**鏌ユ壘璺緞鐨勫懡浠?*锛?
+**查找路径的命令：**
 ```bash
 # Git Bash / CMD
 where codex
@@ -36,18 +36,19 @@ where codex
 Get-Command codex | Select-Object -ExpandProperty Source
 ```
 
-甯歌璺緞锛?- Chocolatey 瀹夎锛歚C:\Users\<鐢ㄦ埛鍚?\AppData\Local\UniGetUI\Chocolatey\bin\codex.exe`
-- npm 鍏ㄥ眬瀹夎锛氭鏌?`C:\Users\<鐢ㄦ埛鍚?\AppData\Roaming\npm\`
+常见路径：
+- Chocolatey 安装：`C:\Users\<用户名>\AppData\Local\UniGetUI\Chocolatey\bin\codex.exe`
+- npm 全局安装：检查 `C:\Users\<用户名>\AppData\Roaming\npm\`
 
-鐣欑┖鍙嚜鍔ㄤ粠 PATH 妫€娴嬶紝浣嗘墜鍔ㄦ寚瀹氭洿鍙潬銆?
-### 绗笁姝ワ細閰嶇疆鑷畾涔夋ā鍨?
-**鏂瑰紡涓€锛歎I 閰嶇疆锛堟帹鑽愶級**
+留空可自动从 PATH 检测，但手动指定更可靠。
+### 第三步：配置自定义模型
+**方式一：UI 配置（推荐）**
 
-Claudian 璁剧疆 鈫?Codex 鏍囩椤?鈫?Custom models 鈫?姣忚濉竴涓ā鍨嬪悕
+Claudian 设置 → Codex 标签页 → Custom models → 每行填一个模型名
 
-**鏂瑰紡浜岋細鐩存帴鏀归厤缃枃浠?*
+**方式二：直接改配置文件**
 
-缂栬緫 `<vault>/.claudian/claudian-settings.json`锛?
+编辑 `<vault>/.claudian/claudian-settings.json`：
 ```json
 "providerConfigs": {
   "codex": {
@@ -56,10 +57,10 @@ Claudian 璁剧疆 鈫?Codex 鏍囩椤?鈫?Custom models 鈫?姣忚濉�
 }
 ```
 
-姣忚涓€涓ā鍨嬪悕锛屼細**杩藉姞**鍒伴€夋嫨鍒楄〃锛屼笉浼氭浛鎹㈠唴缃粯璁ゆā鍨嬨€?
-### 绗洓姝ワ細楠岃瘉
+每行一个模型名，会**追加**到选择列表，不会替换内置默认模型。
+### 第四步：验证
 
-鎵撳紑 Claudian 瀵硅瘽妗?鈫?妯″瀷閫夋嫨鍣?鈫?纭鍑虹幇 Codex 鍒嗙粍鍜屼綘娣诲姞鐨勬ā鍨嬶細
+打开 Claudian 对话框 → 模型选择器 → 确认出现 Codex 分组和你添加的模型：
 
 ```
 CLAUDE
@@ -69,14 +70,16 @@ CLAUDE
 CODEX
   mimo-v2-pro
   mimo-v2.5
-  GPT-5.5          鈫?鍐呯疆榛樿锛屼笉鏀寔鍙拷鐣?  GPT-5.4 Mini     鈫?鍐呯疆榛樿锛屼笉鏀寔鍙拷鐣?```
+  GPT-5.5          → 内置默认，不支持可忽略
+  GPT-5.4 Mini     → 内置默认，不支持可忽略
+```
 
-閫夋嫨浣犵殑妯″瀷锛堝 `mimo-v2.5`锛夊嵆鍙紑濮嬪璇濄€?
-**娉ㄦ剰**锛欳laudian 榛樿浣跨敤 Claude provider銆傜偣鍑?**+** 鏂板缓瀵硅瘽鏃舵墠浼氬脊鍑烘ā鍨嬮€夋嫨鍣紝璁╀綘鍒囨崲鍒?Codex銆傚凡鏈夊璇濅笉鑳戒腑閫斿垏鎹?provider銆?
-## 甯哥敤閰嶇疆椤?
-### 榛樿妯″瀷
+选择你的模型（如 `mimo-v2.5`）即可开始对话。
+**注意**：Claudian 默认使用 Claude provider。点 **+** 新建对话时才会弹出模型选择器，让你切换到 Codex。已有对话不能中途切换 provider。
+## 常用配置项
+### 默认模型
 
-`savedProviderModel` 璁颁綇涓婃閫夋嫨鐨勬ā鍨嬶細
+`savedProviderModel` 记住上次选择的模型：
 
 ```json
 "savedProviderModel": {
@@ -85,7 +88,7 @@ CODEX
 }
 ```
 
-### 鎬濊€冮绠椾笌鍔姏绾у埆
+### 思考预算与努力级别
 
 ```json
 "savedProviderThinkingBudget": {
@@ -98,28 +101,30 @@ CODEX
 }
 ```
 
-### 鏂板璇濋粯璁?Provider
+### 新对话默认 Provider
 
 ```json
 "settingsProvider": "claude"
 ```
 
-璁句负 `"claude"` 鍒欐柊瀵硅瘽榛樿鐢?Claude锛岃涓?`"codex"` 鍒欓粯璁ょ敤 Codex銆?
-## 宸茬煡闄愬埗
+设为 `"claude"` 则新对话默认用 Claude，设为 `"codex"` 则默认用 Codex。
+## 已知限制
 
-1. **鍐呯疆榛樿妯″瀷鏃犳硶鍒犻櫎**锛欳laudian 瀵?Codex 鍐呯疆浜?`GPT-5.5` 鍜?`GPT-5.4 Mini`锛宍customModels` 鍙兘杩藉姞涓嶈兘鏇挎崲銆侫PI 涓嶆敮鎸佽繖浜涙ā鍨嬫椂閫変腑浼氭姤閿欙紝蹇界暐鍗冲彲銆?
-2. **UI 淇敼浼氳鐩栨墜鍔ㄧ紪杈?*锛氬湪 Claudian 璁剧疆鐣岄潰鏀规ā鍨嬪悗锛屼細瑕嗙洊 `savedProviderModel` 鐨勫€笺€傚鏋滆瑕嗙洊鎴愪笉鏀寔鐨勬ā鍨嬶紝闇€瑕佸湪 UI 閲嶆柊閫夋嫨姝ｇ‘鐨勬ā鍨嬨€?
-3. **`enabled` 瀛楁鍙兘琚噸缃?*锛氬垏鎹?provider 璁剧疆鍚庯紝`codex.enabled` 鍙兘鍙樺洖 `false`锛岄渶瑕侀噸鏂板紑鍚€?
-## 鎺ュ叆灏忕背 MiMo 瀹屾暣娴佺▼
+1. **内置默认模型无法删除**：Claudian 对 Codex 内置了 `GPT-5.5` 和 `GPT-5.4 Mini`，`customModels` 只能追加不能替换。API 不支持这些模型时选中会报错，忽略即可。
+2. **UI 修改会覆盖手动编辑**：在 Claudian 设置界面改模型后，会覆盖 `savedProviderModel` 的值。如果被覆盖成不支持的模型，需要在 UI 重新选择正确的模型。
+3. **`enabled` 字段可能被重置**：切换 provider 设置后，`codex.enabled` 可能变回 `false`，需要重新开启。
+## 接入小米 MiMo 完整流程
 
-1. Codex 妗岄潰绔厛閰嶇疆濂藉皬绫?API 鐨?base URL 鍜?API key
-2. Claudian 璁剧疆 鈫?Codex 鏍囩椤?鈫?寮€鍚紑鍏?3. 濉啓 Codex CLI path锛坄where codex` 鏌ヨ矾寰勶級
-4. Custom models 濉叆锛?   ```
+1. Codex 桌面端先配置好小米 API 的 base URL 和 API key
+2. Claudian 设置 → Codex 标签页 → 开启开关
+3. 填写 Codex CLI path（`where codex` 查路径）
+4. Custom models 填入：
+   ```
    mimo-v2.5
    mimo-v2-pro
    ```
-5. 妯″瀷閫夋嫨鍣ㄤ腑閫?`mimo-v2.5` 寮€濮嬪璇?
+5. 模型选择器中选 `mimo-v2.5` 开始对话
+
 ---
 
 > 📎 [[笔记/index|📒 返回笔记索引]]
-
