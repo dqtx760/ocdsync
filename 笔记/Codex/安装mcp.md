@@ -1,4 +1,4 @@
-﻿---
+---
 title: 安装mcp
 time: 2026-06-07
 tags:

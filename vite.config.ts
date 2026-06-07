@@ -52,7 +52,7 @@ export default defineConfig(async () => {
       PageProperties(),
       ThumbnailHashImages(),
       Components({
-        include: [/\.vue$/, /\.md$/],
+        include: [/\.vue$/],
         dirs: '.vitepress/theme/components',
         dts: '.vitepress/components.d.ts',
       }),
