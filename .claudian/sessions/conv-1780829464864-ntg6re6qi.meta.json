@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780829464864-ntg6re6qi",
+  "providerId": "claude",
+  "title": "Greet user in Chinese",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780829464868,
+  "updatedAt": 1780829475523,
+  "lastResponseAt": 1780829475523,
+  "sessionId": "6e48f98f-88aa-4e27-96f0-38108e5dae97",
+  "providerState": {
+    "providerSessionId": "6e48f98f-88aa-4e27-96f0-38108e5dae97"
+  },
+  "currentNote": "public/safari-pinned-tab.svg",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 26845,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 26845,
+    "percentage": 13
+  }
+}

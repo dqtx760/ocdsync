@@ -36,6 +36,7 @@ import {
 import { creators } from '../creators'
 
 import AppContainer from './components/AppContainer.vue'
+import DocHeader from './components/DocHeader.vue'
 import DocFooter from './components/DocFooter.vue'
 import HomePage from './components/HomePage.vue'
 import Share from './components/Share.vue'
@@ -64,12 +65,11 @@ const ExtendedTheme: Theme = {
       'doc-top': () => [
         h(NolebaseHighlightTargetedHeading),
       ],
-      'doc-footer-before': () => [
-        h(DocFooter),
+      'doc-before': () => [
+        h(DocHeader),
       ],
       'nav-bar-content-after': () => [
         h(NolebaseEnhancedReadabilitiesMenu),
-        h(Share),
       ],
       'nav-screen-content-after': () => [
         h(NolebaseEnhancedReadabilitiesScreenMenu),
@@ -85,6 +85,7 @@ const ExtendedTheme: Theme = {
      */
 
     app.component('HomePage', HomePage)
+    app.component('DocHeader', DocHeader)
     app.component('DocFooter', DocFooter)
     app.component('Share', Share)
     app.component('TocList', TocList)
@@ -97,7 +98,7 @@ const ExtendedTheme: Theme = {
       },
       spotlight: {
         defaultToggle: true,
-        hoverBlockColor: 'rgb(240 197 52 / 7%)',
+        hoverBlockColor: 'rgba(200, 215, 240, 0.12)',
       },
     })
 
@@ -114,14 +115,10 @@ const ExtendedTheme: Theme = {
       properties: {
         'zh-CN': [
           {
-            key: 'tags',
-            type: 'tags',
-            title: '标签',
-          },
-          {
-            key: 'progress',
-            type: 'progress',
-            title: '完成进度',
+            key: 'time',
+            type: 'datetime',
+            title: '发布时间',
+            dateFnsLocaleName: 'zhCN',
           },
           {
             key: 'wordCount',
@@ -145,39 +142,29 @@ const ExtendedTheme: Theme = {
     })
   },
   setup() {
-    // Get frontmatter and route
-    const { frontmatter } = toRefs(useData());
-    const route = useRoute();
-    
-    // Obtain configuration from: https://giscus.app/
-    giscusTalk({
-      repo: 'Jackiexiao/nolebase-template',
-      repoId: 'R_kgDOL5WHsg',
-      category: 'Announcements', // default: `General`
-      categoryId: 'DIC_kwDOL5WHss4CfTYs',
-      mapping: 'pathname', // default: `pathname`
-      inputPosition: 'top', // default: `top`
-      lang: 'zh-CN', // default: `zh-CN`
-      // i18n setting (Note: This configuration will override the default language set by lang)
-      // Configured as an object with key-value pairs inside:
-      // [your i18n configuration name]: [corresponds to the language pack name in Giscus]
-      locales: {
-          'zh-Hans': 'zh-CN',
-          'en-US': 'en'
-      },
-      homePageShowComment: false, // Whether to display the comment area on the homepage, the default is false
-      lightTheme: 'light', // default: `light`
-      darkTheme: 'transparent_dark', // default: `transparent_dark`
-      // ...
-    }, {
-      frontmatter, route
-    },
-      // Whether to activate the comment area on all pages.
-      // The default is true, which means enabled, this parameter can be ignored;
-      // If it is false, it means it is not enabled.
-      // You can use `comment: true` preface to enable it separately on the page.
-      true
-    );
+    // giscus 评论暂不配置，避免显示错误
+    // 如需启用请参考 https://giscus.app/ 配置并取消下方注释
+    //
+    // const { frontmatter } = toRefs(useData());
+    // const route = useRoute();
+    // giscusTalk({
+    //   repo: 'Jackiexiao/nolebase-template',
+    //   repoId: 'R_kgDOL5WHsg',
+    //   category: 'Announcements',
+    //   categoryId: 'DIC_kwDOL5WHss4CfTYs',
+    //   mapping: 'pathname',
+    //   inputPosition: 'top',
+    //   lang: 'zh-CN',
+    //   locales: {
+    //       'zh-Hans': 'zh-CN',
+    //       'en-US': 'en'
+    //   },
+    //   homePageShowComment: false,
+    //   lightTheme: 'light',
+    //   darkTheme: 'transparent_dark',
+    // }, {
+    //   frontmatter, route
+    // }, true);
   }
 }
 

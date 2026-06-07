@@ -1,41 +1,36 @@
 ---
 layout: home
 sidebar: false
-
-title: lesswrong
-titleTemplate: 记录回忆，知识和畅想的地方
-
+title: DerekZhao
+titleTemplate: 的笔记库
 hero:
-  name: g~Nj$3J2^
-  text: 记录回忆，知识和畅想的地方
-  tagline: 以 lesswrong 为名，读作 nole-base，取自意为「知识」的昆雅语 nólë 和意为「基础」的英文 base，即「知识库」
+  name: Derek Zhao
+  text: 把想法变成产品，把经验变成笔记
+  tagline: 一个 AI 工具深度用户的个人笔记库，记录从 Claude Code 到 Obsidian 的实践与思考。
   image:
-    src: /logo.svg
-    alt: Vitest
+    src: /avatar.jpg
+    alt: Derek
   actions:
     - theme: brand
-      text: 开始阅读
+      text: 快速开始
       link: /笔记/index
     - theme: alt
-      text: 加入 Discord 服务器
-      link: https://discord.gg/XuNFDcDZGj
+      text: 远程服务
+      link: https://742112.xyz
     - theme: alt
-      text: GitHub 上浏览
-      link: https://github.com/nolebase/nolebase
-
+      text: 关于作者
+      link: https://ai.dqtx.cc
 features:
-  - title: 多样的主题和内容
-    details: 本知识库和所生成的页面均由创作者们维护，涉及到生活中各方面知识和内容，也不乏我们的回忆和畅想。
-    icon: 🌈
-  - title: 皆为 Markdown
-    details: 使用 Markdown 和 Markdown 拓展语法编写和记录笔记，每一个页面都是 Markdown 文件。
+  - title: 4 大主题 · 58 篇笔记
+    details: 持续积累的 AI 工具学习笔记，覆盖 Claude Code、Codex、Obsidian、GitHub。从安装配置到实战技巧，随用随查。
+    icon: 📚
+  - title: 代码即知识
+    details: 所有笔记皆为 Markdown，可在 Obsidian 中双向链接、图谱浏览，也在 VitePress 中编译为结构化知识网站。
     icon: 📃
-  - title: 由 VitePress 驱动
-    details: 基于 Vite 的强大静态文档页面生成器，它生成了我们知识库的页面，提供了简单易用的主题和工具。
-    icon: 🚀
-  - title: 由 Obsidian 驱动
-    details: 强大的知识库管理工具，支持花样繁多的插件和拓展，让知识管理变得更加简单。
-    icon: 🗃
+  - title: AI 原生工作流
+    details: 内置 ingest / query / lint / archive 四个技能，LLM 自动编译笔记到 Wiki，知识随时间复利增长。
+    icon: 🤖
+  - title: 随手记 · 持续迭代
+    details: 不追求面面俱到，而是记录真实使用中的踩坑、技巧和发现。每篇笔记都是进行时。
+    icon: ✍️
 ---
-
-<HomePage />

@@ -113,6 +113,9 @@ importers:
       markdown-it-mathjax3:
         specifier: ^4.3.2
         version: 4.3.2
+      markdown-it-task-lists:
+        specifier: ^2.1.1
+        version: 2.1.1
       node-fetch:
         specifier: ^3.3.2
         version: 3.3.2
@@ -2604,6 +2607,9 @@ packages:
 
   markdown-it-mathjax3@4.3.2:
     resolution: {integrity: sha512-TX3GW5NjmupgFtMJGRauioMbbkGsOXAAt1DZ/rzzYmTHqzkO1rNAdiMD4NiruurToPApn2kYy76x02QN26qr2w==}
+
+  markdown-it-task-lists@2.1.1:
+    resolution: {integrity: sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==}
 
   markdown-it@13.0.2:
     resolution: {integrity: sha512-FtwnEuuK+2yVU7goGn/MJ0WBZMM9ZPgU9spqlFs7/A/pDIUNSOQZhUgOqYCficIuR2QaFnrt8LHqBWsbTAoI5w==}
@@ -6399,6 +6405,8 @@ snapshots:
       mathjax-full: 3.2.2
     transitivePeerDependencies:
       - encoding
+
+  markdown-it-task-lists@2.1.1: {}
 
   markdown-it@13.0.2:
     dependencies:

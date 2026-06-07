@@ -90,16 +90,22 @@ html, body {
   font-display: block;
 }
 
-/* 首页标题样式 */
+/* 首页标题（名字）样式 */
 .VPHomeHero > .container > .main > h1 {
-  font-size: 5rem;
-  font-family: 'tengwarannatar-bold';
+  font-size: 3.5rem;
+  margin-top: -32px;
+}
+
+/* 首页整体下移，视觉上更居中 */
+.VPHome {
+  padding-top: 80px;
 }
 
 /* 首页子标题样式 */
 .VPHomeHero > .container > .main > .text {
-  padding-top: 45px;
-  font-size: 4rem;
+  padding-top: 24px;
+  font-size: 2rem;
+  white-space: nowrap;
 }
 
 /* 首页介绍样式 */
@@ -111,13 +117,15 @@ html, body {
 @media (max-width: 1024px) {
   /* 首页标题样式 */
   .VPHomeHero > .container > .main > h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
+    margin-top: -24px;
   }
 
   /* 首页子标题样式 */
   .VPHomeHero > .container > .main > .text {
-    padding-top: 30px;
-    font-size: 3rem;
+    padding-top: 16px;
+    font-size: 1.6rem;
+    white-space: nowrap;
   }
 
   /* 首页介绍样式 */
@@ -130,13 +138,15 @@ html, body {
 @media (max-width: 640px) {
   /* 首页标题样式 */
   .VPHomeHero > .container > .main > h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-top: -16px;
   }
 
   /* 首页子标题样式 */
   .VPHomeHero > .container > .main > .text {
-    padding-top: 20px;
-    font-size: 2rem;
+    padding-top: 12px;
+    font-size: 1.2rem;
+    white-space: nowrap;
   }
 
   /* 首页介绍样式 */
@@ -189,6 +199,12 @@ html, body {
 /* 覆盖正文的 h1 标题样式 */
 .vp-doc > div > h1 {
   margin-bottom: 16px;
+}
+
+/* 去掉正文 h2 标题的上边框线 */
+.vp-doc h2 {
+  border-top: none;
+  padding-top: 0;
 }
 
 .vp-doc a {
@@ -274,4 +290,27 @@ html, body {
 .dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:active {
   color: white;
   background-color: #4b4b4b;
+}
+
+/*
+  导航栏微调：左标题右移、右菜单左移，仅对非侧边栏页面生效
+*/
+@media (min-width: 960px) {
+  .VPNavBar:not(.has-sidebar) .title {
+    padding-left: 40px;
+  }
+
+  .VPNavBar:not(.has-sidebar) .content-body {
+    padding-right: 40px;
+  }
+}
+
+/* 聚光灯效果 - 墨水屏暖灰风格 */
+:root {
+  --vp-nolebase-enhanced-readabilities-spotlight-under-bg-color: rgba(210, 195, 170, 0.18) !important;
+}
+
+/* 首页头像下移 */
+.VPHomeHero .image {
+  padding-top: 40px;
 }

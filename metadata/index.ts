@@ -1,6 +1,6 @@
 /** 文本 */
-export const siteName = 'lesswrong'
-export const siteShortName = 'lesswrong'
+export const siteName = 'Derek'
+export const siteShortName = 'Derek'
 export const siteDescription = '记录回忆，知识和畅想的地方'
 
 /** 文档所在目录 */

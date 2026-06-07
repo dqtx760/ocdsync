@@ -2,6 +2,7 @@ import process from 'node:process'
 import { defineConfig } from 'vitepress'
 import MarkdownItFootnote from 'markdown-it-footnote'
 import MarkdownItMathjax3 from 'markdown-it-mathjax3'
+import MarkdownItTaskLists from 'markdown-it-task-lists'
 
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
@@ -132,14 +133,10 @@ export default defineConfig({
       pattern: `${githubRepoLink}/tree/main/:path`,
       text: '编辑本页面',
     },
-    socialLinks: [
-      { icon: 'github', link: githubRepoLink },
-      { icon: 'discord', link: discordLink },
-    ],
+    socialLinks: [],
     footer: {
-      message: '用 <span style="color: #e25555;">&#9829;</span> 撰写',
-      copyright:
-        '<a class="footer-cc-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> © 2022-PRESENT lesswrong 的创作者们',
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2026-present Kuingsmile',
     },
     search: {
       provider: 'local',
@@ -221,6 +218,7 @@ export default defineConfig({
     },
     math: true,
     config: (md) => {
+      md.use(MarkdownItTaskLists)
       md.use(MarkdownItFootnote)
       md.use(MarkdownItMathjax3)
       md.use(BiDirectionalLinks({

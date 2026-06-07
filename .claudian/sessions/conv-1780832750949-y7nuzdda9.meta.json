@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780832750949-y7nuzdda9",
+  "providerId": "claude",
+  "title": "Create an article",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780832750949,
+  "updatedAt": 1780832766493,
+  "lastResponseAt": 1780832766493,
+  "sessionId": "acb6d9d0-3034-43c6-a469-62b27454ae16",
+  "providerState": {
+    "providerSessionId": "acb6d9d0-3034-43c6-a469-62b27454ae16"
+  },
+  "currentNote": "笔记/index.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 26969,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 26969,
+    "percentage": 13
+  }
+}

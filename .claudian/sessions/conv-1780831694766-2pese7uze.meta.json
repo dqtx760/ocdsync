@@ -1,0 +1,24 @@
+{
+  "id": "conv-1780831694766-2pese7uze",
+  "providerId": "claude",
+  "title": "Assess file deletion impact",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780831694766,
+  "updatedAt": 1780831711321,
+  "lastResponseAt": 1780831711321,
+  "sessionId": "25904260-ac4e-4660-a117-4c16c1292a49",
+  "providerState": {
+    "providerSessionId": "25904260-ac4e-4660-a117-4c16c1292a49"
+  },
+  "currentNote": "toc.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 9034,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 18304,
+    "contextWindow": 200000,
+    "contextTokens": 27338,
+    "percentage": 14,
+    "contextWindowIsAuthoritative": true
+  }
+}
